@@ -5,7 +5,7 @@ body {
 
 /* navbar */
 .navbar {
-    background-color: rgb(75, 214, 191);
+    background-color: yellow;
     color: azure;
     text-align: center;
     padding: 20px;
@@ -28,13 +28,9 @@ body {
     opacity: 0.9;
 
 }
-.rules {
-    font-size: 20px;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-    line-height: 25px;
-    font-weight: bold;
-}
+
+
+
 .category {
     color: blue;
     font-weight: bold;
@@ -43,16 +39,22 @@ body {
 
 .main {
     font-size: 20px;
-    font-family: 'Hanalei Fill', cursive;
     letter-spacing: 2px;
     line-height: 25px;
+    font-weight: bold;
+    text-align: left;
+}
+
+#underScores {
+    text-align: center;
+    font-size: 30px;
 }
 
 .footer {
-    background-color:rgb(75, 214, 191);
+    background-color:rgb(75, 175, 214);
     color: black;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     position: fixed;
     width: 100%;  
     bottom: 0px;

@@ -5,15 +5,15 @@
 var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
     "bhutan" , "burundi" , "bomoros" , "byprus" , "djibouti" , 
     "eritrea" , "guinea" , "kyrgyzstan" , "liechtenstein" , 
-    "Mozambique" , "Myanmar" , "Namibia" , "Palau" , "Romania" , 
-    "Samoa" , "Tajikistan" , "Vanuatu" ];
+    "mozambique" , "myanmar" , "namibia" , "palau" , "romania" , 
+    "samoa" , "tajikistan" , "vanuatu" ];
 
 
 
     // make variables for our wins losses = set to 0, attempts set to 10
     var wins = 0;
     var losses = 0;
-    var attempts = 10;
+    var attempts = 12;
 
     // var vor wrong guessed letters to display them
     var wrongGuess = [];
@@ -33,9 +33,9 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
 
         // link our variables with html id's
         document.getElementById("underScores").innerHTML = underScores.join(" ");
-        document.getElementById("livesLeft").innerHTML ="Attempts " + attempts;
-        document.getElementById("wins").innerHTML = "Wins " + wins;
-        document.getElementById("losses").innerHTML ="Losses " + losses;
+        document.getElementById("livesLeft").innerHTML ="Attempts: " + attempts;
+        document.getElementById("wins").innerHTML = "Wins: " + wins;
+        document.getElementById("losses").innerHTML ="Losses: " + losses;
     
         
 
@@ -54,7 +54,7 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
             numBlanks = choosenWordLtr.length;
                 console.log(numBlanks);
 
-                attempts = 10;
+                attempts = 12;
                 wrongGuess = [];
                 underScores = [];
 
@@ -96,21 +96,22 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
         // function to count wins and losses
         function count(){
 
-            document.getElementById("livesLeft").innerHTML = "Attempts" + " " + attempts;
+            document.getElementById("livesLeft").innerHTML = "Attempts: " + " " + attempts;
             document.getElementById("underScores").innerHTML = underScores.join(" ");
-            document.getElementById("wrongGuess").innerHTML = "Guessed Wrong" + " " + wrongGuess.join(" ");
-
+            document.getElementById("wrongGuess").innerHTML = "Guessed Wrong: " + " " + wrongGuess.join(" ");
+            
 
             if(choosenWordLtr.toString() == underScores.toString()) {
                 wins++;
                 alert("Well done!");
-
+                document.getElementById("wins").innerHTML = "wins: " + " " + wins;
 
                 // startGame();
             }
             else if(attempts < 1) {
                 losses++;
                 alert("You need to travel more!");
+                document.getElementById("losses").innerHTML = "losses: " + " " + losses;
 
                 // startGame();
             }
@@ -125,5 +126,6 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
             // send the letter to the compare loop
             compare(letterGuess);
             count();
+            
         }
     }
