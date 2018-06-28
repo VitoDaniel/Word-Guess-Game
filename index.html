@@ -3,13 +3,63 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>Word Guess Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hanalei+Fill" rel="stylesheet">
     <link rel="stylesheet" type="text/css"  href="./assets/css/style.css" />
     <link rel="stylesheet" type="text/css"  href="./assets/css/reset.css" />
-    <script src="./assets/javascript/game.js"></script>
+    <script type="text/javascript" src="./assets/javascript/game.js"></script>
+    
 </head>
 <body>
-    <h1>hello world</h1>
+    <!-- make a header -->
+    <nav class="navbar">
+        <h1 class="WGG"> Word Guess Game</h1>
+    </nav>
+    <!-- main content -->
+    <div class="container">
+        <!-- making intro -->
+        <p class="rules">
+            <h1 id="start">Go ahead and press any letter to start!</h1>
+            <br> Category : <span class="category">Countries.</span>  
+            <br> Good Luck!
+        </p>
+        <hr>
+        <!-- underscores instead of letters -->
+        <div class="main">
+            <h2 id="underScores"></h2>
+        </div>
+
+        <!-- wrong guessed ones -->
+        <div class="main">
+           <span id="wrongGuess"></span>
+        </div>
+
+        <!-- remaining lives. -->
+        <div class="main">
+            <span id="livesLeft"></span>
+        </div>
+
+        <!-- adding wins, losses. -->
+        <div class="main">
+           <span id="wins"></span>
+        </div>
+
+        <div class="main">
+           <sapan id="losses"></sapan>
+        </div>
+
+        
+
+        
+
+    </div>
+
+    <footer class="footer">
+        &copy; Copyright Viktor Daniyelyan 2018
+    </footer>
+   
+
 </body>
 </html>

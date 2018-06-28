@@ -1,3 +1,62 @@
-h1 {
-    color: hotpink;
+body {
+    background-image: url(http://www.videosova.com/wp-content/uploads/2016/07/world_flags_header.jpg);
+
 }
+
+/* navbar */
+.navbar {
+    background-color: rgb(75, 214, 191);
+    color: azure;
+    text-align: center;
+    padding: 20px;
+    opacity: 0.9;
+}
+
+.WGG {
+    font-family: 'Faster One', cursive;
+    font-size:70px;
+    padding:0;
+    color: black;
+}
+
+.container {
+    width: 60%;
+    margin: 3% auto;
+    background-color:rgb(75, 214, 191);
+    padding: 5%;
+    text-align: center;
+    opacity: 0.9;
+
+}
+.rules {
+    font-size: 20px;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    line-height: 25px;
+    font-weight: bold;
+}
+.category {
+    color: blue;
+    font-weight: bold;
+
+}
+
+.main {
+    font-size: 20px;
+    font-family: 'Hanalei Fill', cursive;
+    letter-spacing: 2px;
+    line-height: 25px;
+}
+
+.footer {
+    background-color:rgb(75, 214, 191);
+    color: black;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;  
+    bottom: 0px;
+    opacity: 0.9;
+    font-weight: bold;
+}
+

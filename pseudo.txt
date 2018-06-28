@@ -1,0 +1,3 @@
+
+
+Pseudo coding. Word Guessing Game.1.	Create an array that will hold all computer choices.(list of countries)2.	Create a variable for wins, looses, attempts,  and wrong guesses3.	Generate a random word and store it in a variable4.	Display the length of the word to the user as an underscores5.	If user guesses correct letter, replace an underscore with correct letter6.	If user guesses wrong letter, attempts decreases by 1 and the letter stores at “wrong guess” variable and displays on screen.7.	If number of correct letters ===  length of the word, wins ++ and reset()8.	if he number of attempts < 1, looses ++ and reset()
