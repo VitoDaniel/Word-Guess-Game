@@ -5,7 +5,7 @@ body {
 
 /* navbar */
 .navbar {
-    background-color: yellow;
+    background-color: rgb(75, 175, 214);
     color: azure;
     text-align: center;
     padding: 20px;
@@ -22,13 +22,17 @@ body {
 .container {
     width: 60%;
     margin: 3% auto;
-    background-color:rgb(75, 214, 191);
+    background-color:rgb(75, 175, 214);
     padding: 5%;
     text-align: center;
     opacity: 0.9;
 
 }
 
+#underScores {
+    font-family: 'Cinzel Decorative', cursive;
+    margin-bottom: 25px;
+}
 
 
 .category {

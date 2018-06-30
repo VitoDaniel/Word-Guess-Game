@@ -3,7 +3,7 @@
 
 // our word-list that computer will choose from: 
 var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
-    "bhutan" , "burundi" , "bomoros" , "byprus" , "djibouti" , 
+    "bhutan" , "burundi" , "comoros" , "byprus" , "djibouti" , 
     "eritrea" , "guinea" , "kyrgyzstan" , "liechtenstein" , 
     "mozambique" , "myanmar" , "namibia" , "palau" , "romania" , 
     "samoa" , "tajikistan" , "vanuatu" ];
@@ -13,84 +13,74 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
     // make variables for our wins losses = set to 0, attempts set to 10
     var wins = 0;
     var losses = 0;
-    var attempts = 12;
+    var attempts;
 
     // var vor wrong guessed letters to display them
-    var wrongGuess = [];
+    var wrongGuess;
     // underscores
-    var underScores = [];
+    var underScores;
     // var for choosen word
-    var choosenWord = [];
-    // var to hold choosenWord letters
-    var choosenWordLtr =[];
-    // var for bkanks
-    var numBlanks;
-
+    var choosenWord;
+  
 
 
     // fired when the entire page loads
     window.onload = function(){
-
-        // link our variables with html id's
-        document.getElementById("underScores").innerHTML = underScores.join(" ");
-        document.getElementById("livesLeft").innerHTML ="Attempts: " + attempts;
-        document.getElementById("wins").innerHTML = "Wins: " + wins;
-        document.getElementById("losses").innerHTML ="Losses: " + losses;
-    
-        
-
-
 
         function startGame() {
             // generating the random word from our list, and pushing underscores.
             choosenWord = wordList[Math.floor(Math.random() * wordList.length)];
                 console.log(choosenWord);
 
-            // split choosedWord into individual letters
-            choosenWordLtr = choosenWord.split("");
-                console.log(choosenWordLtr);
-
-            // get the number of letters of choosenWordLtr
-            numBlanks = choosenWordLtr.length;
-                console.log(numBlanks);
-
                 attempts = 12;
                 wrongGuess = [];
                 underScores = [];
 
-                for(i=0; i < numBlanks; i++) {
+                for(i=0; i < choosenWord.length; i++) {
                     underScores.push("_");
-                    }
+                }
+
+                // link our variables with html id's
+                document.getElementById("underScores").innerHTML = underScores.join(" ");
+                document.getElementById("livesLeft").innerHTML ="Attempts: " + attempts;
+                document.getElementById("wins").innerHTML = "Wins: " + wins;
+                document.getElementById("losses").innerHTML ="Losses: " + losses;
+    
+        }
+
+        document.onkeyup = function(event) {
+            // make sure key is a letter by setting key codes
+            if(event.keyCode >= 65 && event.keyCode <=90) {
+                // put the pressed key into letterGuess
+                var letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
+                // send the letter to the compare loop
+                compare(letterGuess);
+            }
+    
         }
 
 
         function compare(letter) {
-            // make sure key is a letter by setting key codes
-            if(event.keyCode >= 65 && event.keyCode <=90) {
+            if(wrongGuess.indexOf(letter)>-1) {
+                return;
+            }
+        
                 // check for matching letter in choosedWord
                 var guessedLetter = false;
 
-                    for(var i = 0; i < numBlanks; i++){
+                    for(var i = 0; i < choosenWord.length; i++){
                         if(choosenWord[i] == letter) {
                             guessedLetter = true;
+                            underScores[i] = letter;
                         }
                     } 
+
                     // location of the letter
-                    if (guessedLetter) {
-                        for(var i = 0; i < numBlanks; i++){
-                            if(choosenWord[i] == letter) {
-                                underScores[i] = letter;
-                            }
-                        }
-                    }
-                    // if the letter is not in the word - store at guessed wrong
-                    else {
+                    if (!guessedLetter) {
                         wrongGuess.push(letter);
                         attempts--;
                     }
-
-            }
-
+            count();
         }
 
         // function to count wins and losses
@@ -100,32 +90,26 @@ var wordList = [ "andorra" , "armenia" , "belarus" , "belize" ,
             document.getElementById("underScores").innerHTML = underScores.join(" ");
             document.getElementById("wrongGuess").innerHTML = "Guessed Wrong: " + " " + wrongGuess.join(" ");
             
+         
+            if(choosenWord == underScores.join("")) {
 
-            if(choosenWordLtr.toString() == underScores.toString()) {
                 wins++;
                 alert("Well done!");
                 document.getElementById("wins").innerHTML = "wins: " + " " + wins;
 
-                // startGame();
+                startGame();
             }
             else if(attempts < 1) {
                 losses++;
                 alert("You need to travel more!");
                 document.getElementById("losses").innerHTML = "losses: " + " " + losses;
 
-                // startGame();
+                startGame();
             }
 
         }
         
     startGame();
 
-        document.onkeyup = function(event) {
-            // put the pressed key into letterGuess
-            var letterGuess = String.fromCharCode(event.keyCode).toLowerCase();
-            // send the letter to the compare loop
-            compare(letterGuess);
-            count();
-            
-        }
+        
     }
